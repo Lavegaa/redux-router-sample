@@ -15,10 +15,9 @@ const initailState = {
 export default handleActions(
   {
     [SAMPLE_ACTION]: ({ sample }) => ({ sample: sample }),
-    [CHANGE_ACTION]: (state, action) => ({
-      ...state,
-      sample: action.payload
-    })
+    [CHANGE_ACTION]: (state, action) => {
+      return { ...state, sample: action.payload };
+    }
   },
   initailState
 );
