@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import configure from "store/configure";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, applyMiddleware } from "redux";
+import rootReducer from "store/rootReducer";
 import App from "components/App";
 
-const store = configure();
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware()));
 
 const Root = () => {
   return (
